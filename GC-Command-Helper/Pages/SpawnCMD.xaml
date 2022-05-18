@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GC_Command_Helper.Pages"
+      Loaded="Page_Loaded"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
         xmlns:ui="clr-namespace:WPFUI.Controls;assembly=WPFUI" 
@@ -31,10 +32,18 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <ui:SearchBox Placeholder="搜索"/>
-            <ListBox Grid.Row="1">
-                <ListBoxItem>
+            <ListBox Grid.Row="1" ItemsSource="{Binding Monsters}" SelectedValue="{Binding Id}" SelectedValuePath="Id">
+                <!--<ListBoxItem>
                     测试
-                </ListBoxItem>
+                </ListBoxItem>-->
+                <ListBox.ItemTemplate>
+                    <ItemContainerTemplate>
+                        <TextBlock>
+                            <Run Text="{Binding Name}"/>
+                            <Run Text="{Binding Id}"/>
+                        </TextBlock>
+                    </ItemContainerTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
         <Grid Grid.Column="1">
@@ -48,9 +57,9 @@
 
 
                 <Label Content="数量" ></Label>
-                <ui:NumberBox Min="1" MinWidth="100" ></ui:NumberBox>
+                <ui:NumberBox Min="1" MinWidth="100" Value="{Binding Num,Mode=TwoWay}"></ui:NumberBox>
                 <Label Content="等级" ></Label>
-                <ui:NumberBox Max="210" Min="0" MinWidth="100" ></ui:NumberBox>
+                <ui:NumberBox Max="210" Min="0" MinWidth="100" Value="{Binding Level,Mode=TwoWay}"></ui:NumberBox>
             </StackPanel>
         </Grid>
         <Grid Grid.Column="2">

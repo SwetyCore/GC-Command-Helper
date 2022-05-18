@@ -13,5 +13,12 @@ namespace GC_Command_Helper
 
         public static setCMD SetCMD;
 
+
+        public class SimpleItem
+        {
+            public string Name { get; set; }
+            public string Id { get; set; }
+        }
+
     }
 }
