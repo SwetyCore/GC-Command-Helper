@@ -1,0 +1,60 @@
+﻿<Page x:Class="GC_Command_Helper.Pages.SpawnCMD"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GC_Command_Helper.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+        xmlns:ui="clr-namespace:WPFUI.Controls;assembly=WPFUI" 
+      
+      Title="SpawnCMD">
+
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="18"/>
+            </Style>
+            <Style TargetType="StackPanel">
+                <Setter Property="Margin" Value="0 5"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <ui:SearchBox Placeholder="搜索"/>
+            <ListBox Grid.Row="1">
+                <ListBoxItem>
+                    测试
+                </ListBoxItem>
+            </ListBox>
+        </Grid>
+        <Grid Grid.Column="1">
+            <StackPanel Margin="20 10">
+                <Label Foreground="Black" FontSize="18" Content="类型选择"/>
+
+                <RadioButton Content="生物志"/>
+                <RadioButton Content="讨伐对象"/>
+                <RadioButton Content="NPC"/>
+                <RadioButton Content="摆件"/>
+
+
+                <Label Content="数量" ></Label>
+                <ui:NumberBox Min="1" MinWidth="100" ></ui:NumberBox>
+                <Label Content="等级" ></Label>
+                <ui:NumberBox Max="210" Min="0" MinWidth="100" ></ui:NumberBox>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="2">
+            
+        </Grid>
+    </Grid>
+</Page>

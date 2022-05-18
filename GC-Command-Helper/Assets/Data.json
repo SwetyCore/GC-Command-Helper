@@ -1,0 +1,19 @@
+{
+  "custom": [
+
+    { "无敌": "/godmode" },
+    { "升级至60": "/give 102 1880200" },
+    { "回血": "/h" },
+    { "全都要": "/giveall" },
+    { "我的位置": "/position" },
+    { "世界等级": "/setworldlevel 8" },
+    { "好感等级": "/setfetterlevel 1" },
+    { "清空背包": "/clear all" },
+    { "清空武器": "/clear wp" },
+    { "无敌": "/godmode" },
+    { "无敌": "/godmode" },
+    { "无敌": "/godmode" }
+
+  ]
+
+}

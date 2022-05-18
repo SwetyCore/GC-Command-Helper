@@ -1,0 +1,56 @@
+﻿God Mode
+/godmode
+NoStamina
+/nostamina
+Level up to 60
+/give 102 1880200
+Heal
+/heal
+Give me ALL!
+/giveall
+Where am I?
+/position
+Set World Level
+/setworldlevel 8
+Set Friendship Level
+/setfetterlevel 1
+Clear Backpack(ALL)
+/clear all
+Clear Weapons
+/clear wp
+Clear Artifacts
+/clear art
+Clear Materials
+/clear mat
+Broadcast
+/broadcast Hello everyone~
+Reset Current Constellation(Need Re-login)
+/resetconst
+Reset ALL Constellation(Need Re-login)
+/resetconst all
+100k Intertwined Fates 
+/give 223 10000
+100k Acquaint Fate
+/give 224 10000
+100k Primogem
+/give 201 100000
+100k Mora
+/give 202 100000
+TP Everyone
+/tpall
+Restart Server
+/restart
+Send PM
+/say <player> <message>
+Force coop with player
+/coop @targetId
+Suicide
+/killcharacter
+Kill Somebody
+/killcharacter <playerId>
+List ALL users
+/list uid
+Reload service config
+/reload
+KillAll
+/killall
