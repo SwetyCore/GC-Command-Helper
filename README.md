@@ -45,7 +45,10 @@
   4. 输入 ip uid 发送验证码 进行连接
   5. Enjoy it！
 
-### 程序获取请到请到 [Actions](https://github.com/SwetyCore/GC-Command-Helper/actions) 下载最近编译的版本。
+<!-- ### 程序获取请到请到 [Actions](https://github.com/SwetyCore/GC-Command-Helper/actions) 下载最近编译的版本。 -->
+## 程序获取
+  程序不完整，有需求请自行构建
+  功能完善后会发布
 
 ### 目前功能暂时不完善，请等待后续更新
 
