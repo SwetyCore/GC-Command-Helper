@@ -13,10 +13,10 @@
 
 ## Preview
 
-![](Preview\mined.png)
-![](Preview\connect.png)
-![](Preview\spawn.png)
-![](Preview\run_result.png)
+![](Preview/mined.png)
+![](Preview/connect.png)
+![](Preview/spawn.png)
+![](Preview/run_result.png)
 
 
 
