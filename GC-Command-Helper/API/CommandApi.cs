@@ -153,4 +153,66 @@ namespace GC_Command_Helper.API
 
         }
     }
+
+    public static class MojoApi
+    {
+        public static Request request { get; set; }
+
+        public static string api { get; set; }
+
+        public static string token { get; set; }
+
+        public class ReqDT
+        {
+            public String k2 = "";
+            public String request = "";
+            public Object payload = null;
+        }
+
+        public class RespDT
+        {
+            public int code = 200;
+            public String message = "success";
+            public Object payload;
+        }
+
+        public static void EnsureInit()
+        {
+            if (request == null)
+            {
+                request = new Request();
+
+            }
+            if (api == null)
+            {
+                api = $"https://127.0.0.1/mojoplus/api";
+            }
+
+        }
+
+        public static async Task<RespDT> Command(string command)
+        {
+            EnsureInit();
+            var reqdt = new ReqDT
+            {
+                request = "invoke",
+                payload = command.Substring(1),
+                k2 = token
+            };
+
+            var r = await request.PostJson(api, JsonConvert.SerializeObject(reqdt));
+            RespDT resp;
+            try
+            {
+                resp = JsonConvert.DeserializeObject<RespDT>(r);
+            }
+            catch
+            {
+                resp = new RespDT();
+            }
+            return resp;
+
+        }
+    }
+
 }

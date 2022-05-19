@@ -13,7 +13,7 @@ namespace GC_Command_Helper
 
         public static setCMD SetCMD;
 
-
+        public static string MojoServer;
         public class SimpleItem
         {
             public string Name { get; set; }

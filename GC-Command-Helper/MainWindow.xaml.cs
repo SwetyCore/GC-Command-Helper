@@ -18,6 +18,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 using MessageBox = System.Windows.MessageBox;
 
 namespace GC_Command_Helper
@@ -118,6 +119,21 @@ namespace GC_Command_Helper
             vm.Command = cmd;
         }
 
+        static void RegisterMyProtocol()  //myAppPath = full path to your application
+        {
+            var myAppPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            // RegistryKey key = Registry.ClassesRoot.OpenSubKey("gccomh");  //open myApp protocol's subkey
+            var KeyTest = Registry.CurrentUser.OpenSubKey("Software", true).OpenSubKey("Classes", true);
+            RegistryKey key = KeyTest.CreateSubKey("gccomh");
+            key.SetValue(string.Empty, "URL: GC-Command-Helper Protocol");
+            key.SetValue("URL Protocol", string.Empty);
+
+            key = key.CreateSubKey(@"shell\open\command");
+            key.SetValue(string.Empty, myAppPath + " " + "%1");
+                //%1 represents the argument - this tells windows to open this program with an argument / parameter
+            key.Close();
+        }
+
 
 
         private static int FindYS()
@@ -128,8 +144,9 @@ namespace GC_Command_Helper
         {
             try
             {
-
-                ysHandle= FindYS();
+                RegisterMyProtocol();
+                
+                ysHandle = FindYS();
 
                 if (ysHandle == 0)
                 {
@@ -218,14 +235,26 @@ namespace GC_Command_Helper
                 });
 
                 SendCmdCMD = new AsyncRelayCommand(SendCmdAsync);
+
+                if (GlobalProps.MojoServer != null && GlobalProps.MojoServer != "")
+                {
+                    this.Statue = true;
+                }
             }
 
             public async Task SendCmdAsync()
             {
+                
+                if (GlobalProps.MojoServer != null && GlobalProps.MojoServer != "")
+                {
+                    var r = await API.MojoApi.Command(Command);
+                    ShowMsg(r.payload);
+                } else
+                {
+                    var r = await API.CommandApi.Command(Command);
+                    ShowMsg(r.data);
+                }
 
-                var r = await API.CommandApi.Command(Command);
-
-                ShowMsg(r.data);
 
                 if (AutoClose)
                 {
